@@ -15,7 +15,7 @@ public class HomeController {
     @GetMapping
     public String index(@AuthenticationPrincipal Staff staff, Model model) {
         if (staff != null) {
-            model.addAttribute("staff", staff.getStaffName());
+            model.addAttribute("staff", staff.getUsername());
             return "index";
         }
         model.addAttribute("staff", "anonymous");
@@ -27,7 +27,7 @@ public class HomeController {
         return "login";
     }
 
-    @PreAuthorize(value = "hasAnyAuthority('ADMIN') or hasAnyAuthority(STAFF)") //Дает доступ отдельным пользователям
+    @PreAuthorize(value = "hasAnyAuthority('ADMIN') or hasAnyAuthority('STAFF')") //Дает доступ отдельным пользователям
     @GetMapping("/forstaff")
     public String forStaff() {
         return "foruser";

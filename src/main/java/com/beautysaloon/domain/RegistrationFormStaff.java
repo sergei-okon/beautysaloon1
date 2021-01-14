@@ -22,6 +22,8 @@ public class RegistrationFormStaff {
         staff.setPassword(passwordEncoder.encode(password));
         staff.setPhone(phone);
         staff.setStaffName(name);
+
+        //Нужно сделать вібор роли менеджер или стафф
         staff.setRole(Collections.singleton(Role.STAFF));
 
         return staff;

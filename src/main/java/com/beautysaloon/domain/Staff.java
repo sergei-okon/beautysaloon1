@@ -3,8 +3,6 @@ package com.beautysaloon.domain;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import javax.persistence.*;
 import java.util.*;
@@ -18,15 +16,15 @@ public class Staff implements UserDetails {
     private Long id;
     private String staffName;
     private String password;
-    @Column(name="staffPhone", unique = true)
+    @Column(name = "staffPhone", unique = true)
     private String phone;
     private String email;
 
 
     @Enumerated(EnumType.STRING)
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
-    @CollectionTable(name="roles")
-    private Set<Role> role=new HashSet<>();
+    @CollectionTable(name = "roles")
+    private Set<Role> role = new HashSet<>();
 
 
     @OneToMany
@@ -38,7 +36,8 @@ public class Staff implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return getRole();
     }
-// Надо чтото написать вместо null :(
+
+    // Надо чтото написать вместо null :(
     @Override
     public String getUsername() {
         return null;
