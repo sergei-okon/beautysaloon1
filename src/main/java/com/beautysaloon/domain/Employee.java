@@ -9,14 +9,14 @@ import java.util.*;
 
 @Data
 @Entity
-@Table(name = "staff")
-public class Staff implements UserDetails {
+@Table(name = "employee")
+public class Employee implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String staffName;
+    private String name;
     private String password;
-    @Column(name = "staffPhone", unique = true)
+    @Column(name = "phone", unique = true)
     private String phone;
     private String email;
 
@@ -26,11 +26,12 @@ public class Staff implements UserDetails {
     @CollectionTable(name = "roles")
     private Set<Role> role = new HashSet<>();
 
+    public Employee() {
+    }
 
     @OneToMany
-    @JoinColumn(name = "staffId")
+    @JoinColumn(name = "employeeId")
     private List<Order> orders = new ArrayList<>();
-
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -40,7 +41,7 @@ public class Staff implements UserDetails {
     // Надо чтото написать вместо null :(
     @Override
     public String getUsername() {
-        return null;
+        return name;
     }
 
     @Override
@@ -62,5 +63,7 @@ public class Staff implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
-}
 
+
+
+}

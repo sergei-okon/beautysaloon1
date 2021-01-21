@@ -29,8 +29,8 @@ public class Order {
     private Customer customer;
 
     @ManyToOne
-    @JoinColumn(name = "staffId")
-    private Staff staff;
+    @JoinColumn(name = "employeeId")
+    private Employee employee;
 
   //  @NotNull
     @ManyToOne

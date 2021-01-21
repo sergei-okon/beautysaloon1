@@ -1,6 +1,6 @@
 package com.beautysaloon.config;
 
-import com.beautysaloon.service.MyStaffDetailService;
+import com.beautysaloon.service.StaffDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,7 +18,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    private MyStaffDetailService staffDetailService;
+    private StaffDetailService staffDetailService;
 
     @Bean
     public PasswordEncoder encoder() {

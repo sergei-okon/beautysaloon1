@@ -1,34 +1,44 @@
-package com.beautysaloon.controller;
-
-import com.beautysaloon.domain.RegistrationFormStaff;
-import com.beautysaloon.repo.StaffRepo;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-@Controller
-@RequestMapping("/registration")
-public class RegistrationController {
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-
-    @Autowired
-    private StaffRepo staffRepo;
-
-    @GetMapping
-    public String registration() {
-        return "registration";
-    }
-
-    @PostMapping
-    public String processStaff(RegistrationFormStaff form) {
-        staffRepo.save(form.toStaff(passwordEncoder));
-        return "redirect:/login";
-
-    }
-
-}
+//package com.beautysaloon.controller;
+//
+//import com.beautysaloon.domain.Employee;
+//import com.beautysaloon.domain.RegistrationRequest;
+//import org.springframework.stereotype.Controller;
+//import org.springframework.ui.Model;
+//import org.springframework.web.bind.annotation.*;
+//
+//
+//@Controller
+//@RequestMapping("/registration")
+//public class RegistrationController {
+//
+//    @GetMapping
+//    public String registration() {
+//        return "registration";
+//    }
+//
+//
+//    @RequestMapping(value = "/registration", method = RequestMethod.GET)
+//    public String registration(Model model) {
+//        model.addAttribute("RegistrationFormStaff", new Employee());
+//
+//        return "registration";
+//    }
+//
+//
+//        @PostMapping("/registration")
+//        public String processStaff(RegistrationRequest registrationRequest) {
+//            staffRepo.save(registrationRequest.toStaff());
+//
+//            return "redirect:/login";
+//
+////    @PostMapping("registration")
+////    public String addStaff(@ModelAttribute("staff") Staff staff) {
+////        staffRepo.save(staff);
+////
+////        return "redirect:/login";
+//    }
+//}
+//
+//
+//
+//

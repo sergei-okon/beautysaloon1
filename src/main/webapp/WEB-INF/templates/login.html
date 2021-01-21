@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
@@ -7,8 +7,8 @@
 <body>
 <h2>Login Page</h2>
 
-<form th:action="@{/login}" method="post">
-    username: <input type="text" name="staffname"/>
+<form action="{login}" method="post">
+    username: <input type="text" name="employee"/>
     password: <input type="text" name="password"/>
     <input type="submit" value="login">
 

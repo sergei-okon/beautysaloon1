@@ -1,21 +1,20 @@
 package com.beautysaloon.controller;
 
-import com.beautysaloon.domain.Staff;
+import com.beautysaloon.domain.Employee;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+
 
 @Controller
-@RequestMapping("/")
 public class HomeController {
 
-    @GetMapping
-    public String index(@AuthenticationPrincipal Staff staff, Model model) {
-        if (staff != null) {
-            model.addAttribute("staff", staff.getUsername());
+    @GetMapping("/")
+    public String index(@AuthenticationPrincipal Employee employee, Model model) {
+        if (employee != null) {
+            model.addAttribute("staff", employee.getUsername());
             return "index";
         }
         model.addAttribute("staff", "anonymous");
@@ -30,7 +29,7 @@ public class HomeController {
     @PreAuthorize(value = "hasAnyAuthority('ADMIN') or hasAnyAuthority('STAFF')") //Дает доступ отдельным пользователям
     @GetMapping("/forstaff")
     public String forStaff() {
-        return "foruser";
+        return "forstaff";
     }
 
     @GetMapping("/foradmin")
