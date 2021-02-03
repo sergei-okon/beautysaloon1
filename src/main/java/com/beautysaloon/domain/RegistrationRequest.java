@@ -1,10 +1,6 @@
 package com.beautysaloon.domain;
 
 import lombok.Data;
-import org.springframework.security.crypto.password.PasswordEncoder;
-
-import javax.persistence.*;
-import java.util.Collections;
 import java.lang.String;
 
 

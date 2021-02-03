@@ -5,7 +5,9 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 @Data
 @Entity
@@ -23,8 +25,8 @@ public class Employee implements UserDetails {
 
     @Enumerated(EnumType.STRING)
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
-    @CollectionTable(name = "roles")
-    private Set<Role> role = new HashSet<>();
+    @CollectionTable(name = "employee_role")
+    private List<Role> role = new ArrayList<>();
 
     public Employee() {
     }
@@ -63,7 +65,6 @@ public class Employee implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
-
 
 
 }
