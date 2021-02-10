@@ -8,6 +8,9 @@ import java.util.List;
 
 public interface EmployeeRepo extends CrudRepository<Employee, Long> {
     Employee findByName(String name);
+
     List<Employee> findAllByRole(Role role);
+
+    Employee findByNameAndPassword (String name, String password);
  }
 
