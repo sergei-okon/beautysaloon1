@@ -12,9 +12,10 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "employee")
+@SequenceGenerator(name="seq", initialValue=10, allocationSize=100)
 public class Employee implements UserDetails {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq")
     private Long id;
     private String name;
     private String password;

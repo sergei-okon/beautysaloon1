@@ -1,7 +1,7 @@
 //package com.beautysaloon.controller;
 //
 //import com.beautysaloon.domain.Employee;
-//import com.beautysaloon.domain.RegistrationRequest;
+//import com.beautysaloon.model.RegistrationRequest;
 //import org.springframework.stereotype.Controller;
 //import org.springframework.ui.Model;
 //import org.springframework.web.bind.annotation.*;

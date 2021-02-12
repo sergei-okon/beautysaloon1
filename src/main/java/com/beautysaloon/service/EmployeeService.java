@@ -22,7 +22,19 @@ private final PasswordEncoder passwordEncoder;
     }
 
     public EmployeeDTO getEmployee(String name, String password){
-        return new EmployeeDTO(employeeRepo.findByNameAndPassword(name, passwordEncoder.encode(password)));
+        return new EmployeeDTO(employeeRepo.findByNameAndPassword(name, password));
     }
+
+    public void createEmployee(String name, String password, String phone, String email, String role) {
+        Employee employee = new Employee();
+        employee.setName(name);
+        employee.setPassword(password);
+        employee.setPhone(phone);
+        employee.setEmail(email);
+        employee.setRole(List.of(Role.valueOf(role.toUpperCase())));
+        employeeRepo.save(employee);
+
+    }
+
 }
 

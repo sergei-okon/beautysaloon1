@@ -7,5 +7,7 @@
 <body>
 <h2>For Admin page</h2>
 
+<a href="admin/registration">Registration EMPLOYEE
+</a>
 </body>
 </html>
