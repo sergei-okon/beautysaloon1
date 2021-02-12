@@ -11,6 +11,8 @@ public interface EmployeeRepo extends JpaRepository<Employee, Long> {
 
     List<Employee> findAllByRole(Role role);
 
-    Employee findByNameAndPassword (String name, String password);
- }
+    List<Employee> findAllByOrderByIdDesc();
+
+    Employee findByNameAndPassword(String name, String password);
+}
 

@@ -33,7 +33,7 @@ public class AdminController {
 
     // Обрабатывает данные для для регистрации нового осотрудника
     @PostMapping("/admin/registration")
-    public String register(RegistrationRequest request) {
+    public String register(RegistrationRequest request, Model model) {
         employeeService.createEmployee(
                 request.getName(),
                 request.getPassword(),
@@ -41,7 +41,7 @@ public class AdminController {
                 request.getEmail(),
                 request.getRole()
         );
-        return "admin-panel-employee";
+        return showEmployee(model);
     }
 
     @GetMapping("/admin")

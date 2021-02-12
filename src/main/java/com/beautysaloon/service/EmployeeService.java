@@ -15,16 +15,17 @@ import java.util.List;
 public class EmployeeService {
     private final EmployeeRepo employeeRepo;
 
-private final PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
     public List<Employee> getEmployees(Role role) {
         return employeeRepo.findAllByRole(role);
     }
+
     public List<Employee> getEmployees() {
-        return employeeRepo.findAll();
+        return employeeRepo.findAllByOrderByIdDesc();
     }
 
-    public EmployeeDTO getEmployee(String name, String password){
+    public EmployeeDTO getEmployee(String name, String password) {
         return new EmployeeDTO(employeeRepo.findByNameAndPassword(name, password));
     }
 

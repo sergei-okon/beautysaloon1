@@ -18,7 +18,7 @@ public class ServiceController {
     private final ServiceService serviceService;
 
 // Показывает список услуг
-    @GetMapping("/manager/service")
+    @GetMapping("/panel-service")
     public String showServices(Model model) {
 
         List<Service> services = serviceService.getServices();
@@ -29,13 +29,13 @@ public class ServiceController {
 
 //Обрабатывает данные для создания новой услуги для сохранения
         @PostMapping("/manager/service")
-    public String createService(CreateServiceRequest request) {
+    public String createService(CreateServiceRequest request, Model model) {
         serviceService.createService(
                 request.getServiceType(),
                 request.getPrice()
         );
 
-        return "panel-service";
+        return showServices(model);
     }
 
     @GetMapping("/manager")

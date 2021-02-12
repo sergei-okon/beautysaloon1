@@ -24,7 +24,9 @@
 </form>
 
 <#list employeeList as employee>
-   <p>${employee.name}, ${employee.phone}, ${employee.email}, ${employee.password}</p>
+   <p>${employee.name}, ${employee.phone}, ${employee.email}</p>
 </#list>
+
+
 </body>
 </html>
