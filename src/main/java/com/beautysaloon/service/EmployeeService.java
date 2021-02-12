@@ -20,6 +20,9 @@ private final PasswordEncoder passwordEncoder;
     public List<Employee> getEmployees(Role role) {
         return employeeRepo.findAllByRole(role);
     }
+    public List<Employee> getEmployees() {
+        return employeeRepo.findAll();
+    }
 
     public EmployeeDTO getEmployee(String name, String password){
         return new EmployeeDTO(employeeRepo.findByNameAndPassword(name, password));

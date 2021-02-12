@@ -8,5 +8,7 @@
 
 <h2>For Manager page</h2>
 
+<a href="panel-service.ftl">Services page</a>
+
 </body>
 </html>

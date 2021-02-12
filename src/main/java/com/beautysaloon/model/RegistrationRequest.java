@@ -1,7 +1,6 @@
 package com.beautysaloon.model;
 
 import lombok.Data;
-import java.lang.String;
 
 
 @Data

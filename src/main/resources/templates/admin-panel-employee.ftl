@@ -17,10 +17,14 @@
     <select name="role">
         <option value="staff">staff</option>
         <option value="manager">manager</option>
+        <option value="admin">admin</option>
     </select>
 
     <input type="submit" value="registration">
 </form>
 
+<#list employeeList as employee>
+   <p>${employee.name}, ${employee.phone}, ${employee.email}, ${employee.password}</p>
+</#list>
 </body>
 </html>

@@ -2,11 +2,11 @@ package com.beautysaloon.repo;
 
 import com.beautysaloon.domain.Employee;
 import com.beautysaloon.domain.Role;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface EmployeeRepo extends CrudRepository<Employee, Long> {
+public interface EmployeeRepo extends JpaRepository<Employee, Long> {
     Employee findByName(String name);
 
     List<Employee> findAllByRole(Role role);
